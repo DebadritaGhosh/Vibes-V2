@@ -1,0 +1,183 @@
+.login {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    .login__left {
+        flex: 1;
+        background-color: #5a20cb;
+        display: flex;
+        justify-content: center;
+        position: relative;
+        .login__logo {
+            font-size: 50px;
+            margin-top: 100px;
+            color: #df6d73;
+            font-family: "Great Vibes", cursive;
+            transform: translateY(0px);
+            animation: float 6s ease-in-out infinite;
+        }
+        img {
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+        }
+    }
+    .login__right {
+        flex: 1;
+        padding: 10px 0px 10px 50px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        position: relative;
+        .ring1 {
+            position: absolute;
+            width: 10%;
+            right: 10%;
+            top: 30%;
+            opacity: 0.2;
+            transform: translateY(0px);
+            animation: float 6s ease-in-out infinite;
+        }
+        .ring2 {
+            position: absolute;
+            width: 10%;
+            left: 10%;
+            top: 60%;
+            opacity: 0.4;
+            transform: translateY(0px);
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+        .login__headerContainer {
+            padding-left: 40px;
+            min-width: 60%;
+            align-self: center;
+            margin-top: 10rem;
+            h1 {
+                color: #df6d73;
+                margin: 5px 0 15px 0;
+            }
+            p {
+                color: #8e8b9c;
+                margin: 5px 0 30px 0;
+            }
+        }
+        .login__form {
+            background: transparent;
+            height: 30rem;
+            display: flex;
+            align-self: center;
+            flex-direction: column;
+            align-items: center;
+            width: 60%;
+            .login__loginWithGoogle {
+                margin-top: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 5px;
+                border-radius: 50px;
+                border: 1px solid #e1dfe9;
+                width: 80%;
+                cursor: pointer;
+                img {
+                    margin-right: 10px;
+                    height: 30px;
+                }
+                p {
+                    color: #1b1827;
+                }
+            }
+            .login__divider {
+                color: #bbb9ca;
+                margin: 10px 0 10px 0;
+            }
+            .login__InputContainer {
+                margin: 10px 0 10px 0;
+                width: 80%;
+                p {
+                    color: #1b1827;
+                }
+                input {
+                    margin: 10px 0 10px 0;
+                    width: 100%;
+                    padding: 10px 20px;
+                    border-radius: 30px;
+                    border: 1px solid #9b98a9;
+                    outline: none;
+                }
+            }
+            .login__bottomText {
+                font-size: 12px;
+                margin-bottom: 10px;
+                span {
+                    color: #5137ed;
+                    cursor: pointer;
+                }
+            }
+            button {
+                width: 80%;
+                margin: 10px 0;
+                padding: 15px;
+                color: #ffffff;
+                border-radius: 30px;
+                border: 0;
+                background-color: #5137ed;
+                cursor: pointer;
+                box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.2);
+            }
+        }
+    }
+}
+
+.login__modal-form {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .login__modal-logo {
+        color: #df6d73;
+        font-family: "Great Vibes", cursive;
+        text-align: center;
+        margin-top: 10px;
+        font-size: 50px;
+    }
+    .login__modal-inputContainer {
+        margin: 10px 0 10px 0;
+        width: 90%;
+        text-align: left;
+        p {
+            color: #1b1827;
+        }
+        input {
+            margin: 10px 0 10px 0;
+            width: 100%;
+            padding: 10px 20px;
+            border-radius: 30px;
+            border: 1px solid #9b98a9;
+            outline: none;
+        }
+    }
+    button {
+        width: 90%;
+        margin: 10px 0;
+        padding: 15px;
+        color: #ffffff;
+        border-radius: 30px;
+        border: 0;
+        background-color: #5137ed;
+        cursor: pointer;
+        box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.4);
+    }
+}
