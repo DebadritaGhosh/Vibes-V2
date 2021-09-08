@@ -1,11 +1,12 @@
 .playerC {
-    min-height: 16vh;
+    flex: 1;
+    height: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
     .playerC__timeControl {
-        width: 50%;
+        width: 80%;
         display: flex;
         input {
             width: 100%;
@@ -16,7 +17,7 @@
         }
     }
     .PlayerC__playControl {
-        width: 30%;
+        width: 60%;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -24,5 +25,11 @@
         svg {
             cursor: pointer;
         }
+    }
+}
+
+@media screen and (max-width: 932px) {
+    .playerC {
+        flex: 1;
     }
 }

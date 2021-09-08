@@ -1,0 +1,25 @@
+.library {
+    min-height: 28vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    h2 {
+        margin-top: 1%;
+        margin-left: 3%;
+        width: 10%;
+    }
+    .library__song {
+        display: flex;
+        flex-direction: row;
+        overflow-x: scroll;
+    }
+    .library__song::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .library {
+        min-height: 20vh;
+    }
+}

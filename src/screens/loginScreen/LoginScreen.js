@@ -2,20 +2,19 @@ import React, { useState } from 'react'
 //importing Style
 import "./LoginScreen.scss";
 //Importing Assets
-import loginImage from "../../assets/login.svg";
-import ring1 from "../../assets/ring1.svg";
+import music from "../../assets/music.svg";
 //Importing Firebase
 import { auth, googleProvider } from "../../firebase";
 import db from "../../firebase";
 //Modal
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
-
+//
+import { useHistory } from "react-router-dom";
 
 function getModalStyle() {
     const top = 50;
     const left = 50;
-
     return {
         top: `${top}%`,
         left: `${left}%`,
@@ -35,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
         padding: theme.spacing(2, 4, 3),
     },
 }));
-const LoginScreen = () => {
+const LoginScreen = ({ setUserDetail, userDetail }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     //Register
@@ -46,10 +45,11 @@ const LoginScreen = () => {
     //Forget Password
     const [openForgetPassword, setOpenForgetPassword] = useState(false);
     const [forgotEmail, setForgotEmail] = useState("");
-    const [buttonName, setButtonName] = useState("Reset Password")
     //Modal Style
     const classes = useStyles();
     const [modalStyle] = useState(getModalStyle);
+    //history
+    const history = useHistory();
 
     const signInWithGoogle = async () => {
         try {
@@ -67,6 +67,16 @@ const LoginScreen = () => {
                     email: user.email,
                 });
             }
+            setUserDetail(
+                {
+                    ...userDetail,
+                    name: user.displayName,
+                    id: user.uid,
+                    email: user.email,
+                    pic: user.photoURL
+                }
+            );
+            history.push("/");
         } catch (err) {
             console.error(err);
             alert(err.message);
@@ -75,12 +85,36 @@ const LoginScreen = () => {
 
     const signInWithEmailAndPassword = async (email, password) => {
         try {
-            await auth.signInWithEmailAndPassword(email, password);
+            await auth.signInWithEmailAndPassword(email, password)
+                .then((userCredentials) => {
+                    const user = userCredentials.user;
+                    setUserDetail(
+                        {
+                            ...userDetail,
+                            name: user.email,
+                            id: user.uid,
+                            email: user.email,
+                            pic: ""
+                        }
+                    );
+                })
+            history.push("/");
+
         } catch (err) {
             console.error(err);
             alert(err.message);
         }
     };
+
+
+    // useEffect(() => {
+    //     const getUserData = async (uid) => {
+    //         firebase.database().ref('users/' + uid).once("value", snap => {
+    //             console.log(snap.val())
+    //         })
+    //     }
+    //     getUserData(uId)
+    // }, [uId])
 
     const handleRegister = async (event) => {
         try {
@@ -109,7 +143,6 @@ const LoginScreen = () => {
             alert(err.message);
         }
     }
-
     return (
         <div className="login">
             {/* Registration Modal Start */}
@@ -153,18 +186,18 @@ const LoginScreen = () => {
                             <p>Email</p>
                             <input type="text" placeholder="Please enter your email" onChange={e => setForgotEmail(e.target.value)} />
                         </div>
-                        <button onClick={() => handleForgetPassword()}>{buttonName}</button>
+                        <button onClick={() => handleForgetPassword()}>Reset Password</button>
                     </div>
                 </div>
             </Modal>
             {/* Forget Password Modal End */}
             <div className="login__left">
-                <h2 className="login__logo">Vibes</h2>
-                <img src={loginImage} alt="img" />
+                <h2 className="login__logo">Vibes 2.0</h2>
+                <img src={music} alt="img" />
             </div>
             <div className="login__right">
-                <img className="ring1" src={ring1} alt="ring" />
-                <img className="ring2" src={ring1} alt="ring" />
+                {/* <img className="ring1" src={ring1} alt="ring" />
+                <img className="ring2" src={ring1} alt="ring" /> */}
                 <div className="login__headerContainer">
                     <h1 >Login.</h1>
                     <p>Let music flow in your heart and enrich your soul</p>

@@ -3,3 +3,21 @@ h2,
 h3 {
     color: rgb(54, 54, 54);
 }
+
+@media screen and (max-width: 600px) {
+    html {
+        font-size: 60%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    html {
+        font-size: 55%;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    html {
+        font-size: 55%;
+    }
+}

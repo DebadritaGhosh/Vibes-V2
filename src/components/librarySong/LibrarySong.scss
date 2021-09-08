@@ -1,0 +1,67 @@
+.librarySong {
+    min-height: 130px;
+    max-height: 12rem;
+    min-width: 130px;
+    max-width: 12rem;
+    margin-left: 1.2rem;
+    margin-right: 1rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    box-shadow: 24px 4px 0px -13px rgba(218, 135, 143, 1);
+    -webkit-box-shadow: 24px 4px 0px -13px rgba(218, 135, 143, 1);
+    -moz-box-shadow: 24px 4px 0px -13px rgba(218, 135, 143, 1);
+    img {
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        border-radius: 5px;
+    }
+    .librarySong__songDetail {
+        height: 100%;
+        width: 100%;
+        z-index: 100;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        background-color: rgba(0, 0, 0, 0.6);
+        border-radius: 10px;
+        transition: all 0.5s ease;
+        h3,
+        h4 {
+            position: absolute;
+            z-index: 10;
+            color: white;
+            font-size: 100%;
+        }
+        h3 {
+            top: 30%;
+        }
+        h4 {
+            top: 60%;
+        }
+    }
+}
+
+.librarySong:hover {
+    transform: scale(1.013);
+    .librarySong__songDetail {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+}
+
+// @media screen and (max-width: 400px) {
+//     .librarySong {
+//         min-height: 150px !important;
+//         max-height: 150px;
+//         min-width: 150px;
+//         max-width: 150px;
+//     }
+// }
